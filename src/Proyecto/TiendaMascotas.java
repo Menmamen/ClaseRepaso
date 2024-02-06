@@ -51,36 +51,52 @@ public class TiendaMascotas {
         Scanner sc = new Scanner(System.in);
         TiendaMascotas tiendaMascotas = new TiendaMascotas();
         System.out.println("Bienvenido a KIWOKO.");
+        boolean finished = false;
 
-        System.out.println("¿Qué tarea deseas llevar a cabo?");
-        System.out.println("1: Comprobar el inventario.\n2:Agregar una mascota nueva.\n3: Vender una mascota.\n4: Nada, gracias.");
-        int option = sc.nextInt();
 
-        switch (option){
-            case 1:
-                System.out.println("Has seleccionado comprobar el inventario.");
-                tiendaMascotas.mostrarInventario();
+        while (!finished){
+            System.out.println("¿Qué tarea deseas llevar a cabo?");
+            System.out.println("1: Comprobar el inventario.\n2:Agregar una mascota nueva.\n3: Vender una mascota.\n4: Nada, gracias.");
+            int option = sc.nextInt();
+            switch (option){
+                case 1:
+                    System.out.println("Has seleccionado comprobar el inventario.");
+                    tiendaMascotas.mostrarInventario();
+                    break;
 
-            case 2:
-                System.out.println("Has seleccionado agregar una mascota.\nPor favor introduce el nombre de la nueva mascota :");
-                String nombrea = sc.nextLine();
-                System.out.println("¿Qué edad tiene " + nombrea + "?");
-                int edad = sc.nextInt();
-                System.out.println("¿Qué tipo de mascota es?");
-                String tipo = sc.nextLine();
-                tiendaMascotas.agregarMascotas(nombrea,edad,tipo);
+                case 2:
+                    System.out.println("Has seleccionado agregar una mascota.\nPor favor introduce el nombre de la nueva mascota :");
+                    String nombreA = sc.next();
+                    System.out.println("¿Qué edad tiene " + nombreA + "?");
+                    int edad = sc.nextInt();
+                    System.out.println("¿Qué tipo de mascota es?");
+                    String tipo = sc.next();
+                    tiendaMascotas.agregarMascotas(nombreA,edad,tipo);
+                    break;
 
-            case 3:
-                System.out.println("Has seleccionado vender una mascota.\nPor favor introduce el nombre de la mascota afortunada:");
-                String nombrev = sc.nextLine();
-                tiendaMascotas.venderMascotas(nombrev);
+                case 3:
+                    System.out.println("Has seleccionado vender una mascota.\nPor favor introduce el nombre de la mascota afortunada:");
+                    String nombreV = sc.next();
+                    tiendaMascotas.venderMascotas(nombreV);
+                    break;
 
-            case 4:
-                System.out.println("¡Gracias por usar nuestro sistema!");
+                case 4:
+                    System.out.println("¡Gracias por usar nuestro sistema!\n¡Hasta pronto!");
+                    finished = true;
+                    break;
 
-            default:
-                System.out.println("No he podido reconocer el valor introducido, por favor reinicia el sistema.");
+                default:
+                    System.out.println("No he podido reconocer el valor introducido.");
+                    break;
+            }
+            System.out.println("¿Deseas realizar alguna tarea más?\nIntroduce 1 para realizar otras tareas antes de finalizar el programa.");
+            int seguir = sc.nextInt();
+            if(seguir != 1){
+                System.out.println("¡Hasta pronto!");
+                finished = true;
+            }
         }
+
 
 
 
