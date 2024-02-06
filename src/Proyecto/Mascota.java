@@ -6,6 +6,8 @@ public class Mascota {
     private int edad;
     private String tipoDeAnimal;
 
+
+
     public Mascota(String nombre, int edad, String tipoDeAnimal){
         this.nombre = nombre;
         this.edad = edad;
@@ -14,5 +16,12 @@ public class Mascota {
 
     public String getNombre() {
         return nombre;
+    }
+    public int getEdad() {
+        return edad;
+    }
+
+    public String getTipoDeAnimal() {
+        return tipoDeAnimal;
     }
 }

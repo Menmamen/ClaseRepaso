@@ -38,11 +38,11 @@ public class TiendaMascotas {
         }
     }
     public void mostrarInventario(){
-        if(mascotas[0] == null){
+        if(numeroMascotas == 0){
             System.out.println("El inventario se encuentra vacio.");
         }else{
             for (int i = 0; i < numeroMascotas; i++) {
-                System.out.println(mascotas[i]);
+                System.out.println(mascotas[i].getNombre() + ", " + mascotas[i].getEdad() + ", " + mascotas[i].getTipoDeAnimal());
             }
         }
 

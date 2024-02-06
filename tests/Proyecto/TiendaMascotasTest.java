@@ -8,23 +8,26 @@ public class TiendaMascotasTest {
 
     @Test
     public void agregarMascotas() {
-        String nombre = "Lobo";
-        int edad = 1;
-        String tipo = "perro";
-        Mascota[] mascotatest = new Mascota[10];
-        mascotatest[0] = new Mascota("Lobo", 1, "perro");
         TiendaMascotas tiendaMascotas = new TiendaMascotas();
-        tiendaMascotas.agregarMascotas(nombre,edad,tipo);
-
-        assertArrayEquals(mascotatest[0], tiendaMascotas.mascotas[0]);
+        assertEquals(0,tiendaMascotas.numeroMascotas);
+        tiendaMascotas.agregarMascotas("Lobo", 1, "perro");
+        assertEquals(1,tiendaMascotas.numeroMascotas);
     }
 
     @Test
     public void venderMascotas() {
+        TiendaMascotas tiendaMascotas = new TiendaMascotas();
+        tiendaMascotas.agregarMascotas("Lobo", 1, "perro");
+        tiendaMascotas.venderMascotas("Lobo");
+        assertEquals(0, tiendaMascotas.numeroMascotas);
     }
+
 
     @Test
-    public void mostrarInventario() {
+    public void testVenderMascotasnoExiste() {
+        TiendaMascotas tiendaMascotas = new TiendaMascotas();
+        tiendaMascotas.agregarMascotas("Lobo", 1, "perro");
+        tiendaMascotas.venderMascotas("Luna");
+        assertEquals(1, tiendaMascotas.numeroMascotas);
     }
-
 }
