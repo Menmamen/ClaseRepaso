@@ -2,7 +2,7 @@ package Proyecto;
 
 public class Mascota {
 
-    String nombre;
+    private String nombre;
     private int edad;
     private String tipoDeAnimal;
 
@@ -12,5 +12,7 @@ public class Mascota {
         this.tipoDeAnimal = tipoDeAnimal;
     }
 
-
+    public String getNombre() {
+        return nombre;
+    }
 }
