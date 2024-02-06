@@ -12,11 +12,11 @@ public class TiendaMascotasTest {
         int edad = 1;
         String tipo = "perro";
         Mascota[] mascotatest = new Mascota[10];
-        mascotatest[0] = ("Lobo",1,"perro");
+        mascotatest[0] = new Mascota("Lobo", 1, "perro");
         TiendaMascotas tiendaMascotas = new TiendaMascotas();
         tiendaMascotas.agregarMascotas(nombre,edad,tipo);
 
-        assertArrayEquals(tiendaMascotas.mascotas[0], mascotatest[0]);
+        assertArrayEquals(mascotatest[0], tiendaMascotas.mascotas[0]);
     }
 
     @Test
